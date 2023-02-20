@@ -1,37 +1,40 @@
-import cn from "classnames";
 import Link from "next/link";
 import Image from "next/image";
+import cb from "classnames";
 
 type Props = {
   title: string;
   src: string;
   slug?: string;
+  type: "cms" | "md";
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, slug, type }: Props) => {
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full rounded-t-xl", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
-      })}
       width={1300}
-      height={630}
+      height={230}
+      className={cb("shadow-small", {
+        "rounded-t-lg": slug,
+        "rounded-2xl shadow-2xl": !slug,
+      })}
     />
   );
+
   return (
     <div className="sm:mx-0">
       {slug ? (
         <Link
-          as={`/what-we-think-md/${slug}`}
-          href="/what-we-think-md/[slug]"
+          as={`/what-we-think-${type}/${slug}`}
+          href={`/what-we-think-${type}/[slug]`}
           aria-label={title}
         >
           {image}
         </Link>
       ) : (
-        image
+        <div className=" mb-8">{image}</div>
       )}
     </div>
   );

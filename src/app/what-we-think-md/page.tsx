@@ -1,16 +1,19 @@
 import HeroPost from "@/components/Navigation/Posts/HeroPost";
-import { PostType } from "@/components/Navigation/Posts/interfaces";
+import { AuthorMd, PostType } from "@/components/Navigation/Posts/interfaces";
 import { getAllPosts } from "@/lib/blog";
 
 export default async function Home() {
-  const allPosts: PostType[] = getAllPosts([
+  const allPosts: Pick<
+    PostType<AuthorMd>,
+    "title" | "date" | "slug" | "author" | "coverImage" | "excerpt"
+  >[] = getAllPosts([
     "title",
     "date",
     "slug",
     "author",
     "coverImage",
     "excerpt",
-  ]);
+  ]) as any;
 
   return (
     <main>
@@ -29,6 +32,7 @@ export default async function Home() {
               excerpt={post.excerpt}
               slug={post.slug}
               title={post.title}
+              type="md"
             />
           ))}
         </div>

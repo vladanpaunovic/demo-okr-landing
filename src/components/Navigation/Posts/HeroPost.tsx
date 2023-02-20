@@ -1,5 +1,4 @@
 import Avatar from "./Avatar";
-import DateFormatter from "./DateFormatter";
 import CoverImage from "./CoverImage";
 import Link from "next/link";
 import type { Author } from "./interfaces";
@@ -11,6 +10,7 @@ type Props = {
   excerpt: string;
   author: Author;
   slug: string;
+  type: "cms" | "md";
 };
 
 const HeroPost = ({
@@ -20,18 +20,19 @@ const HeroPost = ({
   excerpt,
   author,
   slug,
+  type,
 }: Props) => {
   return (
     <section className="border rounded-xl shadow-lg">
       <div className="">
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <CoverImage title={title} src={coverImage} slug={slug} type={type} />
       </div>
       <div className="p-4">
         <div>
           <h3 className="text-4xl lg:text-lg leading-tight mb-2">
             <Link
-              as={`/posts/${slug}`}
-              href="/posts/[slug]"
+              as={`/what-we-think-${type}/${slug}`}
+              href={`/what-we-think-${type}/[slug]`}
               className="hover:underline font-medium"
             >
               {title}

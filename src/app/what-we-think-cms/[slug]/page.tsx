@@ -11,7 +11,6 @@ import * as contentful from "@/lib/contentful";
 
 type Props = {
   params: { slug: string };
-  searchParams: any;
 };
 
 export default async function Post({ params: { slug } }: Props) {

@@ -109,6 +109,33 @@ export default function FirstSection() {
               </div>
             </div>
           </div>
+          <div className="lg:col-span-7">
+            <div
+              id="headlessui-tabs-panel-:Rda9m:"
+              role="tabpanel"
+              tabIndex="0"
+              data-headlessui-state="selected"
+              aria-labelledby="headlessui-tabs-tab-:R2ba9m:"
+            >
+              <div className="relative sm:px-6 lg:hidden">
+                <p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
+                  Helping your organisation execute Agile Transformation, with
+                  support from our highly experienced practitioners.
+                </p>
+              </div>
+              <div className="mt-10 overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 ">
+                <Image
+                  alt=""
+                  sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+                  //   src="https://www.1ovmany.com/wp-content/uploads/2022/02/couple-having-a-laugh-with-a-consultant.jpg"
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                  width="2174"
+                  height="1464"
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

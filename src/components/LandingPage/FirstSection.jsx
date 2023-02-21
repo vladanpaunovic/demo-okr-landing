@@ -31,7 +31,7 @@ export default function FirstSection() {
                     role="tab"
                     type="button"
                     aria-selected="true"
-                    tabindex="0"
+                    tabIndex="0"
                     data-headlessui-state="selected"
                     aria-controls="headlessui-tabs-panel-:Rda9m:"
                   >
@@ -52,7 +52,7 @@ export default function FirstSection() {
                     role="tab"
                     type="button"
                     aria-selected="false"
-                    tabindex="-1"
+                    tabIndex="-1"
                     data-headlessui-state=""
                     aria-controls="headlessui-tabs-panel-:Rla9m:"
                   >
@@ -73,7 +73,7 @@ export default function FirstSection() {
                     role="tab"
                     type="button"
                     aria-selected="false"
-                    tabindex="-1"
+                    tabIndex="-1"
                     data-headlessui-state=""
                     aria-controls="headlessui-tabs-panel-:Rta9m:"
                   >
@@ -94,7 +94,7 @@ export default function FirstSection() {
                     role="tab"
                     type="button"
                     aria-selected="false"
-                    tabindex="-1"
+                    tabIndex="-1"
                     data-headlessui-state=""
                     aria-controls="headlessui-tabs-panel-:R15a9m:"
                   >
@@ -106,34 +106,6 @@ export default function FirstSection() {
                   Get the benefits you deserve from using OKRs. Contact us to
                   learn more about how to do it right.
                 </p>
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <div
-              id="headlessui-tabs-panel-:Rda9m:"
-              role="tabpanel"
-              tabindex="0"
-              data-headlessui-state="selected"
-              aria-labelledby="headlessui-tabs-tab-:R2ba9m:"
-            >
-              <div className="relative sm:px-6 lg:hidden">
-                <div className="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl"></div>
-                <p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
-                  Keep track of everyone's salaries and whether or not they've
-                  been paid. Direct deposit not supported.
-                </p>
-              </div>
-              <div className="mt-10 overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 ">
-                <Image
-                  alt=""
-                  sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-                  //   src="https://www.1ovmany.com/wp-content/uploads/2022/02/couple-having-a-laugh-with-a-consultant.jpg"
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-                  width="2174"
-                  height="1464"
-                  className="w-full"
-                />
               </div>
             </div>
           </div>

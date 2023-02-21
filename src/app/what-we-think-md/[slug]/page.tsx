@@ -37,7 +37,7 @@ export default async function Post({ params: { slug } }: Props) {
               author={post.author}
               type="md"
             />
-            <PostBody content={content} />
+            <PostBody content={content} slug={slug} />
           </article>
         </>
       </div>

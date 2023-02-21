@@ -46,7 +46,7 @@ export default async function Post({ params: { slug } }: Props) {
                 picture: `https:${post.author.fields.picture.fields.file.url}`,
               }}
             />
-            <PostBody content={content} />
+            <PostBody slug={slug} content={content} />
           </article>
         </>
       </div>

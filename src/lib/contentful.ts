@@ -1,10 +1,12 @@
 import { createClient } from "contentful";
 
-const client = createClient({
-  // This is the space ID. A space is like a project folder in Contentful terms
+export const client = createClient({
   space: "yg9i1pclvzox",
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-export default client;
+export const previewClient = createClient({
+  space: "yg9i1pclvzox",
+  accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+  host: "preview.contentful.com",
+});

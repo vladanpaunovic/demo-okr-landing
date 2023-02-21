@@ -14,8 +14,8 @@ const CoverImage = ({ title, src, slug, type }: Props) => {
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      width={1300}
-      height={230}
+      width={896}
+      height={600}
       className={cb("shadow-small", {
         "rounded-t-lg": slug,
         "rounded-2xl shadow-2xl": !slug,
@@ -30,7 +30,7 @@ const CoverImage = ({ title, src, slug, type }: Props) => {
           {image}
         </Link>
       ) : (
-        <div className=" mb-8">{image}</div>
+        <div className="mb-8">{image}</div>
       )}
     </div>
   );

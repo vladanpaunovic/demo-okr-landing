@@ -3,9 +3,13 @@ import {
   AuthorContentful,
   PostType,
 } from "@/components/Navigation/Posts/interfaces";
-import client from "@/lib/contentful";
+import * as contentful from "@/lib/contentful";
+import { previewData } from "next/headers";
 
 export default async function Home() {
+  const isPreview = previewData();
+  const client = !!isPreview ? contentful.previewClient : contentful.client;
+
   const posts = await client.getEntries<PostType<AuthorContentful>>({
     content_type: "post",
   });

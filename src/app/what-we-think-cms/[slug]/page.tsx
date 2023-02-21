@@ -2,7 +2,6 @@ import {
   AuthorContentful,
   PostType,
 } from "@/components/Navigation/Posts/interfaces";
-import Head from "next/head";
 import { notFound } from "next/navigation";
 import PostHeader from "@/components/Navigation/Posts/PostHeader";
 import PostBody from "@/components/Navigation/Posts/PostBody";
@@ -27,19 +26,11 @@ export default async function Post({ params: { slug } }: Props) {
 
   const content = await markdownToHtml(post.content || "");
 
-  const title = `${post.title} | Next.js Blog Example with Markdown`;
   return (
     <div>
       <div>
         <>
           <article className="mb-32 pt-8">
-            <Head>
-              <title>{title}</title>
-              <meta
-                property="og:image"
-                content={`https:${post.coverImage.fields.file.url}`}
-              />
-            </Head>
             <PostHeader
               type="cms"
               title={post.title}

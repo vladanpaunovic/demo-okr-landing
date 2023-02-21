@@ -31,8 +31,7 @@ const HeroPost = ({
         <div>
           <h3 className="text-4xl lg:text-lg leading-tight mb-2">
             <Link
-              as={`/what-we-think-${type}/${slug}`}
-              href={`/what-we-think-${type}/[slug]`}
+              href={`/what-we-think-${type}/${slug}`}
               className="hover:underline font-medium"
             >
               {title}

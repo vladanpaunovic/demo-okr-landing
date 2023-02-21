@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ["images.ctfassets.net", "www.1ovmany.com", "images.unsplash.com"],
   },
 };
 

@@ -1,8 +1,12 @@
+import Hero from "@/components/LandingPage/Hero";
+import FirstSection from "@/components/LandingPage/FirstSection";
+
 export default function Home() {
   return (
     <main>
       <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <Hero />
+        <FirstSection />
       </div>
     </main>
   );

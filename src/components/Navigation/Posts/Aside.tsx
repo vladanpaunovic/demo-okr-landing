@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/posts";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,10 +6,8 @@ type Props = {
   currentPostSlug: string;
 };
 
-const Aside = (props: Props) => {
-  const allPosts = getAllPosts(["slug", "title", "excerpt", "coverImage"]);
-
-  const posts = allPosts.filter((post) => post.slug !== props.currentPostSlug);
+const Aside = async (props: Props) => {
+  const allPosts = await getAllPosts();
 
   return (
     <aside>
@@ -30,26 +28,28 @@ const Aside = (props: Props) => {
         <div>
           <h4 className="font-semibold uppercase mb-4">Other Posts</h4>
           <div>
-            {posts.map((post) => (
+            {allPosts.map((post) => (
               <div key={post.slug} className="mb-8">
                 <div className="flex">
                   <div className="w-9/12 pr-3">
                     <h5 className="font-semibold mb-2">{post.title}</h5>
                   </div>
-                  <a href="#" className="w-3/12">
+                  <Link href={`/what-we-think/${post.slug}`} className="w-3/12">
                     <Image
                       width={140}
                       height={140}
                       src={post.coverImage}
                       alt={post.title}
                       className="rounded-xl"
+                      placeholder="blur"
+                      blurDataURL={post.blurDataURL}
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   <p className="mb-2">{post.excerpt.substring(0, 100)}</p>
                   <Link
-                    href={`/what-we-think-md/${post.slug}`}
+                    href={`/what-we-think/${post.slug}`}
                     className="underline"
                   >
                     Read in 9 minutes

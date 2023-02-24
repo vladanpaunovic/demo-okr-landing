@@ -10,8 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navigation = [
-  { name: "What we Think (.md)", href: "/what-we-think-md", current: false },
-  { name: "What we Think (CMS)", href: "/what-we-think-cms", current: false },
+  { name: "What we Think", href: "/what-we-think", current: false },
 ];
 
 function classNames(...classes: string[]) {

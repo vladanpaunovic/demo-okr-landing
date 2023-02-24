@@ -11,5 +11,5 @@ export default function handler(
 ) {
   res.clearPreviewData();
 
-  res.redirect(`/what-we-think-cms`);
+  res.redirect(`/what-we-think`);
 }

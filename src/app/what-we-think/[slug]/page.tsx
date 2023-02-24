@@ -1,7 +1,4 @@
-import {
-  AuthorContentful,
-  PostType,
-} from "@/components/Navigation/Posts/interfaces";
+import { PostType } from "@/components/Navigation/Posts/interfaces";
 import { notFound } from "next/navigation";
 import { previewData } from "next/headers";
 import PostHeader from "@/components/Navigation/Posts/PostHeader";
@@ -19,7 +16,7 @@ export default async function Post({ params: { slug } }: Props) {
 
   const client = !!isPreview ? contentful.previewClient : contentful.client;
 
-  const posts = await client.getEntries<PostType<AuthorContentful>>({
+  const posts = await client.getEntries<PostType>({
     content_type: "post",
     "fields.slug[in]": slug,
   });

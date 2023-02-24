@@ -17,5 +17,5 @@ export default function handler(
     return res.status(404).end();
   }
 
-  res.redirect(`/what-we-think-cms/${slug}`);
+  res.redirect(`/what-we-think/${slug}`);
 }

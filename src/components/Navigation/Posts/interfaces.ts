@@ -1,8 +1,3 @@
-export type AuthorMd = {
-  name: string;
-  picture: string;
-};
-
 export type AuthorContentful = {
   fields: {
     name: string;
@@ -16,16 +11,14 @@ export type AuthorContentful = {
   };
 };
 
-export type Author = AuthorMd;
+export type Author = AuthorContentful;
 
-export type PostType<T = Author> = {
+export type PostType = {
   slug: string;
   title: string;
   date: string;
-  coverImage: T extends AuthorMd
-    ? string
-    : { fields: { file: { url: string } } };
-  author: T extends AuthorMd ? AuthorMd : AuthorContentful;
+  coverImage: { fields: { file: { url: string } } };
+  author: AuthorContentful;
   excerpt: string;
   ogImage: {
     url: string;

@@ -8,7 +8,6 @@ type Props = {
   coverImage: string;
   date: string;
   author: Author;
-  type: "cms" | "md";
   blurDataURL: string;
 };
 
@@ -17,7 +16,6 @@ const PostHeader = ({
   coverImage,
   date,
   author,
-  type,
   blurDataURL,
 }: Props) => {
   return (
@@ -32,7 +30,6 @@ const PostHeader = ({
         <div className="w-1/2 p-8">
           <CoverImage
             blurDataURL={blurDataURL}
-            type={type}
             title={title}
             src={coverImage}
           />

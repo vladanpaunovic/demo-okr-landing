@@ -10,7 +10,6 @@ type Props = {
   excerpt: string;
   author: Author;
   slug: string;
-  type: "cms" | "md";
   blurDataURL: string;
 };
 
@@ -21,7 +20,6 @@ const HeroPost = ({
   excerpt,
   author,
   slug,
-  type,
   blurDataURL,
 }: Props) => {
   return (
@@ -32,14 +30,13 @@ const HeroPost = ({
           title={title}
           src={coverImage}
           slug={slug}
-          type={type}
         />
       </div>
       <div className="p-4">
         <div>
           <h3 className="text-4xl lg:text-lg leading-tight mb-2">
             <Link
-              href={`/what-we-think-${type}/${slug}`}
+              href={`/what-we-think/${slug}`}
               className="hover:underline font-medium"
             >
               {title}

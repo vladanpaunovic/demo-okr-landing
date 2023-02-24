@@ -9,6 +9,10 @@ type Props = {
 const Aside = async (props: Props) => {
   const allPosts = await getAllPosts();
 
+  const filteredPosts = allPosts.filter(
+    (post) => post.slug !== props.currentPostSlug
+  );
+
   return (
     <aside>
       <div>
@@ -25,40 +29,45 @@ const Aside = async (props: Props) => {
             Subscribe
           </button>
         </div>
-        <div>
-          <h4 className="font-semibold uppercase mb-4">Other Posts</h4>
+        {filteredPosts.length > 0 && (
           <div>
-            {allPosts.map((post) => (
-              <div key={post.slug} className="mb-8">
-                <div className="flex">
-                  <div className="w-9/12 pr-3">
-                    <h5 className="font-semibold mb-2">{post.title}</h5>
+            <h4 className="font-semibold uppercase mb-4">Other Posts</h4>
+            <div>
+              {filteredPosts.map((post) => (
+                <div key={post.slug} className="mb-8">
+                  <div className="flex">
+                    <div className="w-9/12 pr-3">
+                      <h5 className="font-semibold mb-2">{post.title}</h5>
+                    </div>
+                    <Link
+                      href={`/what-we-think/${post.slug}`}
+                      className="w-3/12"
+                    >
+                      <Image
+                        width={140}
+                        height={140}
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="rounded-xl"
+                        placeholder="blur"
+                        blurDataURL={post.blurDataURL}
+                      />
+                    </Link>
                   </div>
-                  <Link href={`/what-we-think/${post.slug}`} className="w-3/12">
-                    <Image
-                      width={140}
-                      height={140}
-                      src={post.coverImage}
-                      alt={post.title}
-                      className="rounded-xl"
-                      placeholder="blur"
-                      blurDataURL={post.blurDataURL}
-                    />
-                  </Link>
+                  <div>
+                    <p className="mb-2">{post.excerpt.substring(0, 100)}</p>
+                    <Link
+                      href={`/what-we-think/${post.slug}`}
+                      className="underline"
+                    >
+                      Read in 9 minutes
+                    </Link>
+                  </div>
                 </div>
-                <div>
-                  <p className="mb-2">{post.excerpt.substring(0, 100)}</p>
-                  <Link
-                    href={`/what-we-think/${post.slug}`}
-                    className="underline"
-                  >
-                    Read in 9 minutes
-                  </Link>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </aside>
   );

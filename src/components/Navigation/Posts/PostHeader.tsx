@@ -9,9 +9,17 @@ type Props = {
   date: string;
   author: Author;
   type: "cms" | "md";
+  blurDataURL: string;
 };
 
-const PostHeader = ({ title, coverImage, date, author, type }: Props) => {
+const PostHeader = ({
+  title,
+  coverImage,
+  date,
+  author,
+  type,
+  blurDataURL,
+}: Props) => {
   return (
     <>
       <div className="max-w-7xl mx-auto flex items-center">
@@ -22,7 +30,12 @@ const PostHeader = ({ title, coverImage, date, author, type }: Props) => {
           <PostTitle>{title}</PostTitle>
         </div>
         <div className="w-1/2 p-8">
-          <CoverImage type={type} title={title} src={coverImage} />
+          <CoverImage
+            blurDataURL={blurDataURL}
+            type={type}
+            title={title}
+            src={coverImage}
+          />
         </div>
       </div>
     </>

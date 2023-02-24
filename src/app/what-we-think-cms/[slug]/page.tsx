@@ -8,6 +8,7 @@ import PostHeader from "@/components/Navigation/Posts/PostHeader";
 import PostBody from "@/components/Navigation/Posts/PostBody";
 import markdownToHtml from "@/lib/markdownToHTML";
 import * as contentful from "@/lib/contentful";
+import { getPlaiceholder } from "plaiceholder";
 
 type Props = {
   params: { slug: string };
@@ -31,6 +32,13 @@ export default async function Post({ params: { slug } }: Props) {
 
   const content = await markdownToHtml(post.content || "");
 
+  const placeholder = await getPlaiceholder(
+    `https:${post.coverImage.fields.file.url}`,
+    {
+      size: 10,
+    }
+  );
+
   return (
     <div>
       <div>
@@ -45,6 +53,7 @@ export default async function Post({ params: { slug } }: Props) {
                 name: post.author.fields.name,
                 picture: `https:${post.author.fields.picture.fields.file.url}`,
               }}
+              blurDataURL={placeholder.base64}
             />
             <PostBody slug={slug} content={content} />
           </article>

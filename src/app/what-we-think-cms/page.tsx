@@ -5,6 +5,7 @@ import {
 } from "@/components/Navigation/Posts/interfaces";
 import * as contentful from "@/lib/contentful";
 import { previewData } from "next/headers";
+import { getPlaiceholder } from "plaiceholder";
 
 export default async function Home() {
   const isPreview = previewData();
@@ -16,6 +17,24 @@ export default async function Home() {
 
   const allPosts = posts.items;
 
+  const imagePaths = allPosts.map(
+    (post) => `https:${post.fields.coverImage.fields.file.url}`
+  );
+
+  const images = await Promise.all(
+    imagePaths.map(async (src) => {
+      const {
+        base64,
+        img: { width, height, ...img },
+      } = await getPlaiceholder(src);
+
+      return {
+        ...img,
+        blurDataURL: base64,
+      };
+    })
+  ).then((values) => values);
+
   return (
     <main>
       <div className="p-8 container mx-auto">
@@ -24,7 +43,7 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          {allPosts.map((post) => {
+          {allPosts.map((post, index) => {
             return (
               <HeroPost
                 key={post.fields.slug}
@@ -38,6 +57,7 @@ export default async function Home() {
                 slug={post.fields.slug}
                 title={post.fields.title}
                 type="cms"
+                blurDataURL={images[index].blurDataURL}
               />
             );
           })}

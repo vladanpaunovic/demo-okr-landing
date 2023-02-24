@@ -7,12 +7,14 @@ type Props = {
   src: string;
   slug?: string;
   type: "cms" | "md";
+  blurDataURL: string;
 };
 
-const CoverImage = ({ title, src, slug, type }: Props) => {
+const CoverImage = ({ title, src, slug, type, blurDataURL }: Props) => {
   const image = (
     <Image
       src={src}
+      blurDataURL={blurDataURL}
       alt={`Cover Image for ${title}`}
       width={896}
       height={600}
@@ -20,6 +22,7 @@ const CoverImage = ({ title, src, slug, type }: Props) => {
         "rounded-t-lg": slug,
         "rounded-2xl shadow-2xl": !slug,
       })}
+      placeholder="blur"
     />
   );
 

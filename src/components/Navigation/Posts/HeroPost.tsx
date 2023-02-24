@@ -11,6 +11,7 @@ type Props = {
   author: Author;
   slug: string;
   type: "cms" | "md";
+  blurDataURL: string;
 };
 
 const HeroPost = ({
@@ -21,11 +22,18 @@ const HeroPost = ({
   author,
   slug,
   type,
+  blurDataURL,
 }: Props) => {
   return (
     <section className="border rounded-xl shadow-lg">
       <div className="">
-        <CoverImage title={title} src={coverImage} slug={slug} type={type} />
+        <CoverImage
+          blurDataURL={blurDataURL}
+          title={title}
+          src={coverImage}
+          slug={slug}
+          type={type}
+        />
       </div>
       <div className="p-4">
         <div>

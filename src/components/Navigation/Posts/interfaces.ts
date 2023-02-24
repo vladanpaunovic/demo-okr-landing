@@ -1,4 +1,4 @@
-export type AuthorContentful = {
+export type Author = {
   fields: {
     name: string;
     picture: {
@@ -11,14 +11,12 @@ export type AuthorContentful = {
   };
 };
 
-export type Author = AuthorContentful;
-
 export type PostType = {
   slug: string;
   title: string;
   date: string;
   coverImage: { fields: { file: { url: string } } };
-  author: AuthorContentful;
+  author: Author;
   excerpt: string;
   ogImage: {
     url: string;

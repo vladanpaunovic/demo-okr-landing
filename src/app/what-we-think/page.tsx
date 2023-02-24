@@ -25,7 +25,6 @@ export default async function Home() {
                 excerpt={post.excerpt}
                 slug={post.slug}
                 title={post.title}
-                type="cms"
                 blurDataURL={post.blurDataURL}
               />
             );

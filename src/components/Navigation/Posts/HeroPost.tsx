@@ -1,14 +1,13 @@
 import Avatar from "./Avatar";
 import CoverImage from "./CoverImage";
 import Link from "next/link";
-import type { Author } from "./interfaces";
 
 type Props = {
   title: string;
   coverImage: string;
   date: string;
   excerpt: string;
-  author: Author;
+  author: { name: string; picture: string };
   slug: string;
   blurDataURL: string;
 };

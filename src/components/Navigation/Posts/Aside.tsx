@@ -4,12 +4,11 @@ import Link from "next/link";
 
 type Props = {
   currentPostSlug: string;
+  allPosts: Awaited<ReturnType<typeof getAllPosts>>;
 };
 
-const Aside = async (props: Props) => {
-  const allPosts = await getAllPosts();
-
-  const filteredPosts = allPosts.filter(
+const Aside = (props: Props) => {
+  const filteredPosts = props.allPosts.filter(
     (post) => post.slug !== props.currentPostSlug
   );
 

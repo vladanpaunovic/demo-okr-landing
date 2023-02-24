@@ -6,6 +6,7 @@ import PostBody from "@/components/Navigation/Posts/PostBody";
 import markdownToHtml from "@/lib/markdownToHTML";
 import * as contentful from "@/lib/contentful";
 import { getPlaiceholder } from "plaiceholder";
+import { getAllPosts } from "@/lib/posts";
 
 type Props = {
   params: { slug: string };
@@ -36,13 +37,14 @@ export default async function Post({ params: { slug } }: Props) {
     }
   );
 
+  const allPosts = await getAllPosts();
+
   return (
     <div>
       <div>
         <>
           <article className="mb-32 pt-8">
             <PostHeader
-              type="cms"
               title={post.title}
               coverImage={`https:${post.coverImage.fields.file.url}`}
               date={post.date}
@@ -52,7 +54,7 @@ export default async function Post({ params: { slug } }: Props) {
               }}
               blurDataURL={placeholder.base64}
             />
-            <PostBody slug={slug} content={content} />
+            <PostBody allPosts={allPosts} slug={slug} content={content} />
           </article>
         </>
       </div>

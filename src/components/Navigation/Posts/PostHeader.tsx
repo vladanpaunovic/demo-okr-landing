@@ -1,13 +1,12 @@
 import Avatar from "./Avatar";
 import CoverImage from "./CoverImage";
 import PostTitle from "./PostTitle";
-import { Author } from "./interfaces";
 
 type Props = {
   title: string;
   coverImage: string;
   date: string;
-  author: Author;
+  author: { name: string; picture: string };
   blurDataURL: string;
 };
 
